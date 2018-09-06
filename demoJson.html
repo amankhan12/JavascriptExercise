@@ -1,0 +1,100 @@
+<html>
+<body>
+
+<script>
+function foo(a,b,c,d,e,f,g,h){
+var n = arguments.length,
+  total = 0;
+for (var i = 0; i < n; i++) {
+    total += arguments[i];
+  }
+  console.log(total);
+}
+function bar(){
+	var para = document.createElement("p");
+	var app = "The String I would like to create";
+	
+	para.appendChild(document.createTextNode(app));
+	
+	var element = document.getElementById("demo");
+	
+	element.appendChild(para);
+}
+function goAway(){
+var element = document.getElementById("demo");
+element.style.visibility = "hidden";
+}
+function comeBack(){
+var element = document.getElementById("demo");
+element.style.visibility = "visible";
+}
+function jsonStuff(){
+var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function () {
+	var superHeroes = request.response;
+	
+	console.log(superHeroes);
+	
+	for (hero in superHeroes){
+	
+		console.log(hero);
+	
+		console.log(superHeroes[hero]);
+		
+		if (hero == "members"){
+		
+		for (member in superHeroes[hero]){
+		
+		console.log(superHeroes[hero][member]);
+		
+		if (superHeroes[hero][member].name == "Eternal Flame"){
+		
+		var para = document.createElement("p");
+	var app = "There secretIdentity is: " + superHeroes[hero][member].secretIdentity;
+	
+	para.appendChild(document.createTextNode(app));
+	
+	var element = document.getElementById("demo");
+	
+	element.appendChild(para);
+	
+	}
+		
+		
+		}
+		
+		}
+	
+	
+	}
+}
+}
+</script>
+
+
+
+<div>
+
+<input type = "button" onclick = "foo(1,2,3)" /> 
+
+<input type = "button" onclick = "bar()" />
+
+<input type = "button" onmouseenter = "goAway()" />
+
+<input type = "button" onmouseenter = "comeBack()" />
+
+<input type = "button" onclick = "jsonStuff()" />
+
+
+</div>
+
+<div id = "demo"></div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript</title>
+
+</head>
+
+<body>
+
+
+<h1>JavaScript Worksheet</h1>
+
+
+
+<script type="text/javascript">
+	var testString = "My Name is Aman";
+
+	//alert(testString);
+	console.log(testString);
+	document.write(testString);
+</script>
+<br>
+
+<script type="text/javascript">
+	var input;
+
+	function square(input){
+		return input*input;
+
+	}
+	//var output = input*input;
+	document.write(square(4));
+</script>
+<br>
+
+<script type="text/javascript">
+	function threeSum(x,y,z){
+		return x+y+z;
+	}
+	document.write(threeSum(3,2,3));
+
+</script>
+<br>
+
+<script type="text/javascript">
+	var person = {
+		name : "Aman" ,
+		age : 3 ,
+		occ : "Work"
+	};
+	document.write(person.name +" , "+person.age +" , "+ person.occ);
+	document.write("<br>");
+	var person = {
+		name : "Haathi" ,
+		age : 37 ,
+		occ : "Nothing"
+	};
+	document.write(person.name +" , "+person.age +" , "+ person.occ);
+	
+
+</script>
+<br>
+
+<script type="text/javascript">
+	function ageUp(){
+		person.age+=1;
+	document.getElementById("testButton").innerHTML=person.age;
+	}
+</script>
+<br>
+	<button onclick="ageUp()">Click me</button>
+	<p id = "testButton"></p>
+
+<br>
+<h3>Add a Person</h3>
+	<form action=>
+  	name: <input type="text" name="name" id = "id1"><br>
+  	age : <input type="number" name="age" id = "id2"><br>
+  	occ : <input type="text" name="occ" id ="id3"><br>
+  	<button type= "button" onclick="addPerson()">ADD PERSON</button>
+	</form>
+	<p id = "inputPerson"></p>
+<br>
+<script type="text/javascript">
+	function addPerson(){
+		person.name = document.getElementById("id1").value;
+		person.age = document.getElementById("id2").value;
+		person.occ = document.getElementById("id3").value;
+
+		document.getElementById("inputPerson").innerHTML=person.name +" "+ person.age +" "+ person.occ;
+	}
+</script>
+<br>
+<script type="text/javascript">
+	var upperString = "My name is Elliot";
+	document.write(upperString)
+	document.write("<br>");
+	function toUpper(){
+		createUpper = upperString.toUpperCase();
+		document.getElementById("upperCse").innerHTML=createUpper;
+	}
+</script>
+<button onclick="toUpper()">UpperCASE</button>
+<p id = "upperCse"></p>
+<br>
+
+<script type="text/javascript">
+	var s1 = "My age is: ";
+	var n1 = 21;
+	document.write(s1 + n1);
+</script>
+<br>
+<br>
+<script type="text/javascript">
+	var car = ['BMW','AUDI','MERCEDES'];
+	document.write(car);
+	document.write("<br>");
+	car.push ("PORSCHE");
+	document.write(car);
+	document.write("<br>")
+	car.push("Lamborghini","Ferrari","Ford");
+	document.write(car);
+	document.write("<br>")
+	car.sort();
+	document.write(car);
+	document.write("<br>")
+	car.pop()
+	document.write(car);
+	document.write("<br>")
+</script>
+<br>
+<button onclick="checkPersonAge(person)">Is person between 20 - 40</button>
+<p id = "ageCheck"></p>
+<br>
+<script type="text/javascript">
+	function checkPersonAge(person) {
+		if (person.age >=20 && person.age <=40){
+			document.getElementById("ageCheck").innerHTML="True";
+		}
+		else {
+			document.getElementById("ageCheck").innerHTML="False";
+		}
+	}
+</script>
+
+<br>
+For Loop from zero to ten : 
+<script type="text/javascript">
+	for (i = 1; i<=10; i++){
+		document.write(i +" , ");
+	} 
+</script>
+
+<br>
+For Loop Which can be devided by two : 
+<script type="text/javascript">
+	for (i = 1; i<=10; i++){
+		if(i%2 == 0){
+		document.write(i +" , ");	
+		}
+	} 
+</script>
+
+</div>
+</body>
+</html>

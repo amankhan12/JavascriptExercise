@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript</title>
+
+</head>
+
+<body>
+
+
+<h1>JavaScript Worksheet</h1>
+
+<br>
+<h2>FizzBuzz</h2>
+
+<button type= "button" onclick="fb(numberAmount, fizz, buzz)">FizzBuzz</button>
+<p id= "result"></p>
+
+<script type="text/javascript">
+
+	var numberAmount = 1000;
+	var fizz = "Fizz";
+	var buzz = "Buzz";
+	
+
+	function fb(numberAmount, fizz, buzz){
+
+		var count = "";
+
+	for (i = 1; i<=numberAmount; i++){
+		
+		if(i%3 == 0 && i%5 == 0){
+			count += buzz+fizz+" , ";	
+		}
+		else if(i%3 == 0){
+			count += fizz+" , ";	
+		}
+		else if (i%5 == 0){
+			count += buzz+" , ";	
+		}
+		
+		else {
+			count += i+ " , ";
+		}
+	document.getElementById("result").innerHTML = count;
+	}
+	} 
+</script>
+<br>
+<h2>Iteration 4</h2>
+
+Value : <input type="number" name="inputNumber" id = "inputNum"><br>
+<button type= "button" onclick="iteration4()">test</button>
+ 
+
+<p id= "result2"></p>
+
+
+<script type="text/javascript">
+	
+
+	function iteration4() {	
+	var x = 126;
+
+	while(x >1){
+		if (x%3 == 0) {
+
+			x/3;
+			console.log("Divided By 3: " + x);
+		}
+		else{
+			if (x%3 == 2){
+				x++;
+			}
+			else if (x%3 == 1) {
+				;x--;
+			}
+			x;
+		}
+	}
+	}
+</script>
+
+<h2>Strings 4</h2>
+	
+<script type="text/javascript">
+
+	function findThree() {
+	var triple = "Thisss is a teeest yesss";
+	var count = 0;
+	var total = "";
+	for (i=0; i < triple.length; i++) {
+		
+
+		if (triple.charAt(i) == triple.charAt(i+1) && triple.charAt(i+1) == triple.charAt(i+2)) {
+			count ++;
+			total = count;
+		}
+	}
+	document.getElementById("result4").innerHTML = total;
+}
+
+</script>
+
+<button type= "button" onclick="findThree()">CheccckString</button>
+<p id= "result4"></p>
+<br>
+<br>
+<button onclick="myFunction()">Try it</button>
+<script type="text/javascript">
+	function createPara(){
+		var paragraph = document.createElement("P");
+	    var text = document.createTextNode("paragraph.");
+	    //paragraph.appendChild(t);
+	    document.body.appendChild(paragraph);
+	}
+</script>
+
+</div>
+</body>
+</html>
