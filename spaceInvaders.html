@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html onkeypress="playerAction()">
+
+
+<head>
+<style>
+ #alien {
+            position: absolute; 
+        }
+		
+p{
+	width = 100%
+	height = 100%
+}
+body, html { 
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+			background-color:black;
+			color: lightgreen;
+            }
+</style>
+</head>
+
+<body id="zxc">
+
+
+<input type="button" onclick="playGame()" value="Down" /><br>
+<input 	id = "boxVis"
+			type="number"
+			placeholder="Vis"
+			alt="Make Vis"
+			required="required"
+			readonly /><br>
+
+
+<p id="test">
+
+</p>
+
+<script>
+var makeA;
+var downA;
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+function playGame(){
+	makePlayer();
+	document.getElementById("boxVis").value = 0;
+	makeA = setInterval(makeAlien, 500);
+	downA = setInterval(downAll, 250);
+	
+}
+function downAll(){
+	var preElements = document.getElementsByTagName('pre');
+	for(var i = 0; i < preElements.length; ++ i){
+		var current = preElements[i];
+		var rect = current.getBoundingClientRect();
+		current.style.top = rect.top + 50 + "px";
+		var player = document.getElementById("player");
+		var rect2 = player.getBoundingClientRect();
+		if(rect.bottom >= rect2.bottom){
+				window.clearInterval(makeA);
+				window.clearInterval(downA);
+				var parent = document.getElementById("test");
+				while (test.firstChild) {
+					test.removeChild(test.firstChild);
+				}
+				alert("You lose");
+		}
+	}
+}
+function makeAlien(){
+	//var newAlien = document.getElementById("alien");
+	var node = document.createElement("pre")
+	var asd = " .. \n .. \n____"
+	var textnode =  document.createTextNode(asd);
+	node.style.position = "absolute";
+	node.appendChild(textnode);
+	node.style.left = getRandomInt(5) * 50 + "px";
+	document.getElementById("test").appendChild(node);
+}
+function makePlayer(){
+	var node = document.createElement("span");
+	var asd = "## \n##";
+	node.setAttribute("id", "player");
+	var textnode =  document.createTextNode(asd);
+	node.style.position = "absolute";
+	node.appendChild(textnode);
+	node.style.bottom= 50 + "px";
+	node.style.left = 100 + "px";
+	document.getElementById("test").appendChild(node);
+}
+function playerAction(){
+	
+	var kay = event.keyCode;
+	if (kay == 119){
+		var player = document.getElementById("player");
+		var preElements = document.getElementsByTagName('pre');
+label1: {
+		for(var i = 0; i < preElements.length; ++ i){
+			if(player.style.left == preElements[i].style.left){
+				var parent = document.getElementById("test");
+				//var child = document.getElementById("p1");
+				parent.removeChild(preElements[i]);
+				document.getElementById("boxVis").value = parseInt(document.getElementById("boxVis").value) + 1;
+				break label1;
+			}
+		}
+		}
+	}
+	else if (kay == 97){
+		var pla = document.getElementById("player");
+		var rect = pla.getBoundingClientRect();
+		if (rect.left>=50){
+			pla.style.left = rect.left - 50 + "px";
+		}
+	}
+	else if (kay == 100){
+		var pla = document.getElementById("player");
+		var rect = pla.getBoundingClientRect();
+		if (rect.left<=200){
+			pla.style.left = rect.left + 50 + "px";
+		}
+	}
+	else if (kay == 13){
+		playGame();
+	}
+	
+}
+</script>
+
+</body>
+
+
+</html>

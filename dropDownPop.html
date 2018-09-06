@@ -8,6 +8,9 @@
     <hr />
     <select id="ddlCustomers">
     </select>
+
+    <p id="reault"></p>
+
     <script type="text/javascript">
         function PopulateDropDownList() {
            //Build an array containing Customer records.
@@ -15,7 +18,8 @@
                 { CustomerId: 1, Name: "John Hammond", Country: "United States" },
                 { CustomerId: 2, Name: "Mudassar Khan", Country: "India" },
                 { CustomerId: 3, Name: "Suzanne Mathews", Country: "France" },
-                { CustomerId: 4, Name: "Robert Schidner", Country: "Russia" }
+                { CustomerId: 4, Name: "Robert Schidner", Country: "Russia" },
+                { CustomerId: 5, Name: "Aman Khan", Country: "Pakistan"}
             ];
            
             var ddlCustomers = document.getElementById("ddlCustomers");
@@ -25,7 +29,7 @@
                 var option = document.createElement("OPTION");
  
                 //Set Customer Name in Text part.
-                option.innerHTML = customers[i].Name;
+                option.innerHTML = customers[i].Country;
  
                 //Set CustomerId in Value part.
                 option.value = customers[i].CustomerId;
@@ -33,6 +37,7 @@
                 //Add the Option element to DropDownList.
                 ddlCustomers.options.add(option);
             }
+            document.getElementById("reault").innerHTML = customers[4].Name;
         }
     </script>
 </body>

@@ -106,15 +106,47 @@ Value : <input type="number" name="inputNumber" id = "inputNum"><br>
 <p id= "result4"></p>
 <br>
 <br>
-<button onclick="myFunction()">Try it</button>
+
+
+
+<div id = "domFour">
+<input type="text" name="enterText" id="paraText"></input>
+<button type="button" name="addText" id="addText" onclick="addText()">Add text</button>
+<button type="button" name="createPara" id="createPara" onclick="createPara()">Create Para</button>
+<button type="button" name="delPara" id="delPara" onclick="deleteText()">Delete Para</button>
+
+</div>
 <script type="text/javascript">
+
 	function createPara(){
-		var paragraph = document.createElement("P");
-	    var text = document.createTextNode("paragraph.");
-	    //paragraph.appendChild(t);
-	    document.body.appendChild(paragraph);
+		var p = document.createElement("p");
+		p.id = "cPara";
+		var add = document.getElementById("domFour");
+		add.appendChild(p);
 	}
+
+	function addText(p) {
+		var userTxt = document.getElementById("paraText").value;
+		var input = document.createTextNode(userTxt);
+		cPara.appendChild(input);
+
+	}
+
+	function deleteText(p){
+		var remD = document.getElementById("domFour");
+		var rempPid = document.getElementById("cPara");
+		var remP = document.getElementById("p");
+
+		remD.removeChild(rempPid);
+		rempD.removeChild(remP);
+
+	}
+
 </script>
+
+
+
+
 
 </div>
 </body>
